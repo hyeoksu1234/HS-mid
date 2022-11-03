@@ -1,3 +1,9 @@
+// Angry Birds
+// Daniel Shiffman
+// https://thecodingtrain.com/CodingChallenges/138-angry-birds.html
+// https://youtu.be/TDQzoe9nslY
+// https://editor.p5js.org/codingtrain/sketches/LbNt1nyxE
+
 class Bird {
   constructor(x, y, r) {
     const options = {
