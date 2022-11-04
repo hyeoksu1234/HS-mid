@@ -23,14 +23,14 @@ function preload() {
 }
 
 function setup() {
-  const canvas = createCanvas(711, 400);
+  const canvas = createCanvas(1080, 400);
   engine = Engine.create();
   world = engine.world;
   ground = new Ground(width / 2, height - 10, width, 20);
   for (let i = 0; i < 3; i++) {
     boxes[i] = new Box(450, 300 - i * 75, 84, 100);
   }
-  bird = new Bird(150, 300, 25);
+  bird = new Bird(150, 300, 20);
 
   slingshot = new SlingShot(150, 300, bird.body);
 
@@ -48,7 +48,7 @@ function setup() {
 function keyPressed() {
   if (key == " ") {
     World.remove(world, bird.body);
-    bird = new Bird(150, 300, 25);
+    bird = new Bird(150, 300, 20);
     slingshot.attach(bird.body);
   }
 }
