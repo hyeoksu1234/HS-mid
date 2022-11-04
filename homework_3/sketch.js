@@ -28,7 +28,7 @@ function setup() {
   //Engine.run(engine);
 
   var prev = null;
-  for (var x = 200; x < 400; x += 20) {
+  for (var x = 400; x < 800; x += 20) {
     var fixed = false;
     if (!prev) {
       fixed = true;
@@ -51,7 +51,7 @@ function setup() {
     prev = p;
   }
 
-  boundaries.push(new Boundary(200, height, width, 50, 0));
+  boundaries.push(new Boundary(400, height, width, 50, 0));
 
   var canvasmouse = Mouse.create(canvas.elt);
   canvasmouse.pixelRatio = pixelDensity();
