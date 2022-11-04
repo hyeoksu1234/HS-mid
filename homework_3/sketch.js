@@ -22,7 +22,7 @@ var ground;
 var mConstraint;
 
 function setup() {
-  var canvas = createCanvas(width, height);
+  var canvas = createCanvas(800, 800);
   engine = Engine.create();
   world = engine.world;
   //Engine.run(engine);
