@@ -46,7 +46,7 @@ function setup() {
 }
 
 function keyPressed() {
-  if (key == " ") {
+  if (key == "a") {
     World.remove(world, bird.body);
     bird = new Bird(150, 300, 18);
     slingshot.attach(bird.body);
