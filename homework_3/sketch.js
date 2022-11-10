@@ -20,6 +20,15 @@ var boundaries = [];
 var ground;
 
 var mConstraint;
+let colors = [
+  "#e7007d",
+  "#e72600",
+  "#b26300",
+  "#937300",
+  "#6d7f00",
+  "#008a39",
+  "#008673",
+];
 
 function setup() {
   var canvas = createCanvas(800, 800);
@@ -64,14 +73,14 @@ function setup() {
   console.log(mConstraint);
 }
 
-// function keyPressed() {
-//   if (key == ' ') {
-//   }
-// }
+function keyPressed() {
+  if (key == "a") {
+  }
+}
 
-// function mouseDragged() {
-//   circles.push(new Circle(mouseX, mouseY, random(5, 10)));
-// }
+function mouseDragged() {
+  circles.push(new Circle(mouseX, mouseY, random(5, 10)));
+}
 
 function draw() {
   background(51);
@@ -90,7 +99,7 @@ function draw() {
     var pos = mConstraint.body.position;
     var offset = mConstraint.constraint.pointB;
     var m = mConstraint.mouse.position;
-    stroke(0, 255, 0);
+    stroke(0, 0, 0);
     line(pos.x + offset.x, pos.y + offset.y, m.x, m.y);
   }
 }
