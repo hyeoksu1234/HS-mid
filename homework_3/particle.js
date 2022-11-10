@@ -1,8 +1,3 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/szztTszPp-8
-
 function Particle(x, y, r, fixed) {
   var options = {
     friction: 0,
