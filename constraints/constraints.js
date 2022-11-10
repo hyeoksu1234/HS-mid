@@ -7,6 +7,15 @@ let Engine = Matter.Engine,
   Composite = Matter.Composite,
   Bodies = Matter.Bodies;
 
+// let Engine = Matter.Engine,
+// Bodies = Matter.Bodies,
+// Composite = Matter.Composite;
+
+// let engine;
+
+let boxes = [];
+let ground;
+
 // create engine
 let engine;
 
@@ -39,6 +48,8 @@ function createWalls(thickness) {
 }
 
 function setup() {
+  ground = new Rect(400, 610, 810, 60, "#C0AAA9", { isStatic: true });
+  // Composite.add(engine.world, ground.bodies);
   let dom = document.getElementById("sketch");
   canvas = createCanvas(
     dom.getBoundingClientRect().width,
@@ -173,7 +184,15 @@ function setup() {
     },
   });
 
-  Composite.add(world, mouseConstraint);
+  Composite.add(engine.world, mouseConstraint, ground.bodies);
+  // Composite.add(engine.world, ground.bodies);
+}
+function mousePressed() {
+  let size = random(10, 40);
+  let randcolor = color(random(256), random(256), random(256));
+  let newRect = new Rect(mouseX, mouseY, size, size, randcolor);
+  Composite.add(engine.world, newRect.bodies);
+  boxes.push(newRect);
 }
 
 function draw() {
@@ -183,6 +202,20 @@ function draw() {
     body.render();
   });
   matterConstraints.forEach((constraint) => constraint.render());
+
+  // background("#F8F3FD");
+  // Engine.update(engine);
+
+  noStroke();
+  fill("#FF8C58");
+
+  // boxes.forEach((e) => e.render());
+  for (let i = 0; i < boxes.length; i++) {
+    boxes[i].render();
+  }
+
+  fill("#C0AAA9");
+  ground.render();
   // matterBodies.forEach((body) => {
   //   body.renderDirVector();
   // });

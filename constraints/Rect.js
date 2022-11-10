@@ -40,3 +40,24 @@ class P5Rect {
     );
   }
 }
+class Rect {
+  constructor(e, f, w, h, c, opt) {
+    this.e = e;
+    this.f = f;
+    this.w = w;
+    this.h = h;
+    this.c = c;
+    this.bodies = Matter.Bodies.rectangle(this.e, this.f, this.w, this.h, opt);
+  }
+
+  render() {
+    rectMode(CENTER);
+    push();
+    translate(this.bodies.position.x, this.bodies.position.y);
+    rotate(this.bodies.angle);
+    fill(this.c);
+    rect(0, 0, this.w, this.h);
+
+    pop();
+  }
+}
