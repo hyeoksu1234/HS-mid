@@ -1,0 +1,51 @@
+body {
+  background-color: #000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+i,
+em {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+em {
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      --e: #{$i/8};
+      --m: #{abs((($i-1) % 8-4)/4)};
+    }
+  }
+  transform: translate(-50%, -50%) rotate(calc(var(--e) * 360deg))
+    translateY(-14vm) rotate(180deg);
+}
+i {
+  filter: blur(calc((10 - var(--j)) / 15 * 6px));
+  opacity: calc(var(--j) / 10);
+  background: hsl(calc(25 + var(--i) * 10), 100%, 70%);
+  height: calc(var(--i) * var(--i) * 0.03vm);
+  width: calc(var(--i) * var(--i) * 0.03vm);
+  border-radius: 50%;
+  animation: 3s move alternate infinite cubic-bezier(0.53, 0.51, 0.31, 0.86);
+  animation-delay: calc(var(--i) * -0.07s - (1s * var(--m)));
+  @for $i from 1 through 10 {
+    &::nth-child(#{$i}) {
+      --i: #{20 - $i};
+      --j: #{$i};
+    }
+  }
+}
+@keyframes move {
+  50% {
+    transform: translate(-50%, -50%) translateY(calc(var(--j) * -1vm))
+      translateX(calc(var(--i) * -0.5vm)) rotate(-280deg) translateY(-1vm);
+  }
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(280deg)
+      translateY(calc(var(--j) * 1vm));
+  }
+}
