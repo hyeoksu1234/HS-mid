@@ -1,6 +1,6 @@
-class P5Rect {
-  constructor(x, y, width, height, options) {
-    this.body = Matter.Bodies.rectangle(x, y, width, height, options);
+class P5Polygon {
+  constructor(x, y, sides, radius, options) {
+    this.body = Matter.Bodies.polygon(x, y, sides, radius, options);
     Matter.Composite.add(engine.world, this.body);
     this.fillColor = null;
     this.strokeColor = null;
